@@ -8,9 +8,9 @@ from composer.utils.object_store.object_store import ObjectStore, ObjectStoreTra
 from composer.utils.object_store.oci_object_store import OCIObjectStore
 from composer.utils.object_store.s3_object_store import S3ObjectStore
 from composer.utils.object_store.sftp_object_store import SFTPObjectStore
-from composer.utils.object_store.uc_volume_object_store import UCVolumeObjectStore
+from composer.utils.object_store.uc_table_object_store import UCTableObjectStore
 
 __all__ = [
     'ObjectStore', 'ObjectStoreTransientError', 'LibcloudObjectStore', 'S3ObjectStore', 'SFTPObjectStore',
-    'OCIObjectStore', 'UCVolumeObjectStore'
+    'OCIObjectStore', 'UCTableObjectStore'
 ]
