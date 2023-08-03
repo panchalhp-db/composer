@@ -148,12 +148,14 @@ class UCTableObjectStore(ObjectStore):
                       callback: Callable[[int, int], None] | None = None) -> None:
         pass
 
-    def download_object(
-            self,
-            object_name: str,  # unused
-            filename: str | pathlib.Path,
-            overwrite: bool = False,
-            callback: Callable[[int, int], None] | None = None) -> None:
+    def download_object(self,
+                        object_name: str,
+                        filename: str | pathlib.Path,
+                        overwrite: bool = False,
+                        callback: Callable[[int, int], None] | None = None) -> None:
+
+        if not object_name.endswith(".jsonl"):
+            return FileNotFoundError
 
         # get temporary credentials w/ details on the exact parquet files
         s3_credentials = self.get_temporary_credentials(Operation.READ)
