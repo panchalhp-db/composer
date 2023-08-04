@@ -180,8 +180,7 @@ class UCTableObjectStore(ObjectStore):
                 f.write(f"{row}\n")
 
     def get_object_size(self, object_name: str) -> int:
-        s3_client = self.get_temporary_s3_client(Operation.READ)
-        return s3_client.get_object_size(object_name=object_name)
+        return 10**6
 
     def get_uri(self, object_name: str) -> str:
         return f'uc://{self.table_name}/{object_name}'
